@@ -22,14 +22,14 @@
         $result = '';
 
         foreach ($array as $number) {
-            $result .= $number . $string;       // Составляем строку выражения
+            $result .= $number . $string;                  // Составляем строку выражения
         }
 
-        $result = substr($result, 0, -1);       // Удаление последнего знака
+        $result = substr($result, 0, -1);                  // Удаление последнего знака
 
-        $evaluate = eval("return($result);");   // Исполнение выражения в строке
+        $evaluate = eval("return($result);");              // Исполнение выражения в строке
 
-        echo 'Результат: ' . $result . ' = ' . $evaluate;       // Вывод результата
+        echo 'Результат: ' . $result . ' = ' . $evaluate;  // Вывод результата
     }
 
     $numbers = [5, 10, 15, 20];
