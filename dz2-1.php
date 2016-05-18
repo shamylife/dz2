@@ -13,8 +13,8 @@
 
 //    function output_strings ($array) {
 //
-//        for ($i = 0; $i < count($array); $i++) {
-//            echo '<p>' . $array[$i] . '</p>';
+//        foreach ($array as $string) {
+//            echo '<p>' . $string . '</p>';
 //        }
 //    }
 //
@@ -26,14 +26,14 @@
 
     function output_strings ($array) {
 
-        for ($i = 0; $i < count($array); $i++) {
+        foreach ($array as $string) {
 
             $result = '';
 
             $number = mt_rand(1, 10);
 
             for ($j = 0; $j < $number; $j++) {
-                $result .= $array[$i] . ' ';
+                $result .= $string . ' ';
             }
 
             echo '<p>' . $result . '</p>';
@@ -41,3 +41,24 @@
     }
 
     output_strings($strings);
+
+
+    # Вариант с циклом for:
+
+//    function output_strings ($array) {
+//
+//    for ($i = 0; $i < count($array); $i++) {
+//
+//        $result = '';
+//
+//        $number = mt_rand(1, 10);
+//
+//        for ($j = 0; $j < $number; $j++) {
+//            $result .= $array[$i] . ' ';
+//        }
+//
+//        echo '<p>' . $result . '</p>';
+//    }
+//}
+//
+//output_strings($strings);
