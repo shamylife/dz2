@@ -53,3 +53,10 @@
     
         return $reversed_string;
     }
+
+    $first_string = "Аргентина манит негра";
+    $second_string = "А роза упала на лапу Азора";
+    $third_string = "Some string";
+    $fourth_string = 51;
+
+    is_palindrom($fourth_string);
