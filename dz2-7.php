@@ -37,3 +37,19 @@
 
         return $str === $reverse_str;
     }
+
+
+    function string_reverse ($str) {
+    
+        $count = mb_strlen($str, 'UTF-8');
+    
+        $arr = array();
+    
+        for($i = 0; $i < $count; $i++) {
+            $arr[] = mb_substr($str, $i, 1, 'UTF-8');
+        }
+    
+        $reversed_string = implode(array_reverse($arr));
+    
+        return $reversed_string;
+    }
