@@ -28,12 +28,33 @@
         echo "\"$str\" - параметр третей функции!";
     }
 
-    function selector ($number, $string) {
+//    function selector ($number, $string) {
+//
+//        if ( !(is_int($number)) && $number < 1 || $number > 3 )
+//            echo "Введите целое число от 1 до 3";
+//
+//        $func_id = 'add_string' . $number;
+//
+//        if ( function_exists($func_id) ) {
+//            $func_id($string);
+//        } else {
+//            echo "Такой функции не существует!";
+//        }
+//    }
+//
+//    selector(3, 'Abrakadabra');
 
-        if ( !(is_int($number)) && $number < 1 || $number > 3 )
-            echo "Введите целое число от 1 до 3";
 
-        $func_id = 'add_string' . $number;
+    # Дополнительно:
+
+    function selector ($array, $string) {
+
+        foreach ($array as $number) {
+            if ( !(is_int($number)) && $number < 1 || $number > 3 )
+                echo "Введите массив целых чисел от 1 до 3";
+        }
+
+        $func_id = 'add_string' . mt_rand(1, count($array));
 
         if ( function_exists($func_id) ) {
             $func_id($string);
@@ -42,4 +63,4 @@
         }
     }
 
-    selector(3, 'Abrakadabra');
+    selector($arr = [1, 2, 3], 'Ахалай-Махалай');
