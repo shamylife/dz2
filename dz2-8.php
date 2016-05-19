@@ -1,3 +1,4 @@
+<?php
 /*
     1. Создать 3 функции, принимающие по 1 строковому параметру и выводящие на
         экран разные фразы с переданным параметром.
@@ -12,3 +13,33 @@
     вместо первого параметра принимала массив с названиями функций. И выбирала
     случайно, какую функцию запускать.
 */
+
+    # Выполнение основного задания:
+
+    function add_string1 ($str) {
+        echo "\"$str\" - параметр первой функции!";
+    }
+
+    function add_string2 ($str) {
+        echo "\"$str\" - параметр второй функции!";
+    }
+
+    function add_string3 ($str) {
+        echo "\"$str\" - параметр третей функции!";
+    }
+
+    function selector ($number, $string) {
+
+        if ( !(is_int($number)) && $number < 1 || $number > 3 )
+            echo "Введите целое число от 1 до 3";
+
+        $func_id = 'add_string' . $number;
+
+        if ( function_exists($func_id) ) {
+            $func_id($string);
+        } else {
+            echo "Такой функции не существует!";
+        }
+    }
+
+    selector(3, 'Abrakadabra');
