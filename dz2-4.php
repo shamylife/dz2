@@ -17,19 +17,45 @@
 
     # Выполнение основной части задания:
 
+//    function matrix ($cols, $rows) {
+//
+//        if (is_int($cols) && is_int($rows)) {                              // Проверка данных на целочисленность
+//
+//            echo "<table><tr>";
+//
+//            for ($i = 1; $i <= $rows; $i++) {                              // Счетчик строк
+//
+//                for ($j = 1; $j <= $cols; $j++) {                          // Счетчик колонок
+//                    echo "<td>" . '&nbsp' . ($i * $j) . '&nbsp' ."</td>";  // Создаем ячейки
+//                }
+//
+//                if ($i != $rows) echo "</tr><tr>";                         // Закрытие строк
+//            }
+//
+//            echo "</tr></table>";
+//
+//        } else {
+//            echo "Введите два целочисленных значения!";
+//        }
+//    }
+//
+//    matrix(4, 5);
+
+    # Дополнительно:
+
     function matrix ($cols, $rows) {
 
-        if (is_int($cols) && is_int($rows)) {                              // Проверка данных на целочисленность
+        if (is_int($cols) && is_int($rows)) {                     // Проверка данных на целочисленность
 
             echo "<table><tr>";
 
-            for ($i = 1; $i <= $rows; $i++) {                              // Счетчик строк
+            for ($i = 1; $i <= $rows; $i++) {                     // Счетчик строк
 
-                for ($j = 1; $j <= $cols; $j++) {                          // Счетчик колонок
-                    echo "<td>" . '&nbsp' . ($i * $j) . '&nbsp' ."</td>";  // Создаем ячейки
+                for ($j = 1; $j <= $cols; $j++) {                 // Счетчик колонок
+                    echo "<td>&nbsp" . ($i * $j) . "&nbsp</td>";  // Создаем ячейки
                 }
 
-                if ($i != $rows) echo "</tr><tr>";                         // Закрытие строк
+                if ($i != $rows) echo "</tr><tr>";                // Закрытие строк
             }
 
             echo "</tr></table>";
@@ -39,4 +65,12 @@
         }
     }
 
-    matrix(4, 5);
+    function matrix_exec () {
+
+        $columns = mt_rand(5, 20);
+        $rows = mt_rand(5, 20);
+
+        matrix($columns, $rows);
+    }
+
+    matrix_exec();
