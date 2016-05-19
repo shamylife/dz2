@@ -32,6 +32,11 @@
                 }
             }
         }
+
+        echo "<pre>";
+        print_r($arr);                                           // Выводим результат на экран
+        echo "</pre>";
+        
     }
 
     sort_array($array);
