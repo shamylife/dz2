@@ -16,56 +16,54 @@
     результатов.
 */
 
-    # Первая часть задания:
+# Первая часть задания:
+//Все так же с отступами
+function calculator1($array, $string)
+{
+    $result = '';
 
-//    function calculator ($array, $string) {
-//        $result = '';
-//
-//        foreach ($array as $number) {
-//            $result .= $number . $string;                  // Составляем строку выражения
-//        }
-//
-//        $result = substr($result, 0, -1);                  // Удаление последнего знака
-//
-//        $evaluate = eval("return($result);");              // Исполнение выражения в строке
-//
-//        echo 'Результат: ' . $result . ' = ' . $evaluate;  // Вывод результата
-//    }
-//
-//    $numbers = [5, 10, 15, 20];
-//
-//    $operator = '+';
-//
-//    calculator($numbers, $operator);
-
-
-    # Дополнительно:
-    
-    function calculator ($array, $operator = ['+']) {
-
-            if ( !(in_array('/', $operator) && in_array(0, $array)) ) {          // Проверка деления на ноль
-    
-                foreach ($operator as $symbol) {
-    
-                    $result = '';
-    
-                    foreach ($array as $number) {
-                        $result .= $number . $symbol;                            // Составляем строку выражения
-                    }
-    
-                    $result = substr($result, 0, -1);                            // Удаление последнего знака
-    
-                    $evaluate = eval("return($result);");                        // Исполнение выражения в строке
-    
-                    echo 'Результат: ' . $result . ' = ' . $evaluate . "</br>";  // Вывод результата
-                }
-            } else {
-                echo "Деление на ноль невозможно!";
-            }
+    foreach ($array as $number) {
+        $result .= $number . $string;                  // Составляем строку выражения
     }
+
+    $result = substr($result, 0, -1);                  // Удаление последнего знака
+
+    $evaluate = eval("return($result);");              // Исполнение выражения в строке
+
+    echo 'Результат: ' . $result . ' = ' . $evaluate;  // Вывод результата
+}
+
+$numbers = [5, 10, 15, 20];
+
+$operator = '+';
+
+calculator1($numbers, $operator);
+
+
+# Дополнительно:
     
-    $numbers = [5, 10, 15, 20];
-    
-    $operators = ['+', '-', '*', '/'];
-    
-    calculator($numbers, $operators);
+function calculator2($array, $operator = ['+'])
+{
+    if (!(in_array('/', $operator) && in_array(0, $array))) {          // Проверка деления на ноль
+        foreach ($operator as $symbol) {
+            $result = '';
+
+            foreach ($array as $number) {
+                    $result .= $number . $symbol;                            // Составляем строку выражения
+            }
+            $result = substr($result, 0, -1);                            // Удаление последнего знака
+
+            $evaluate = eval("return($result);");                        // Исполнение выражения в строке
+
+            echo 'Результат: ' . $result . ' = ' . $evaluate . "</br>";  // Вывод результата
+        }
+    } else {
+        echo "Деление на ноль невозможно!";
+    }
+}
+
+$numbers = [5, 10, 15, 20];
+
+$operators = ['+', '-', '*', '/'];
+
+calculator2($numbers, $operators);
