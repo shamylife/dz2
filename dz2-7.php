@@ -1,62 +1,69 @@
 <?php
-/*
-    Функция принимает 1 строковый параметр и возвращает TRUE, если строка
-    является палиндромом, FALSE в противном случае. Пробелы не должны учитываться.
-    Регистр не должен учитываться.
+/**
+ * Функция принимает 1 строковый параметр и возвращает TRUE, если строка
+ * является палиндромом, FALSE в противном случае. Пробелы не должны учитываться.
+ * Регистр не должен учитываться.
+ *
+ * Палиндром – строка, одинаково читающаяся в обоих направлениях.
+ *
+ * Дополнительно (не обязательно): Искала бы все палиндромы, в строке начиная с
+ * трёх символов.
+ */
 
-    Палиндром – строка, одинаково читающаяся в обоих направлениях.
+# Выполнение основного задания:
 
-    Дополнительно (не обязательно): Искала бы все палиндромы, в строке начиная с
-    трёх символов.
-*/
+/**
+ * Строка для проверки на палиндром
+ * @param $string
+ */
 
-    function is_palindrom ($string) {
+function isPalindrom($string)
+{
+    echo "Строка \"$string\"";
 
-        echo "Строка \"$string\"";
+    $result = checkPalindrom($string);
 
-        $result = check_palindrom($string);
+    if ($result === true) {
+        echo ' является палиндромом!';
+    } elseif ($result === -1) {
+        echo ' является недопустимым параметром';
+    } else {
+        echo ' не является палиндромом!';
+    }
+}
 
-        if ($result === true)
-            echo ' является палиндромом!';
-
-        else if ($result === -1)
-            echo ' является недопустимым параметром';
-
-        else
-            echo ' не является палиндромом!';
+function checkPalindrom($str)
+{
+    if (!(is_string($str))) {
+        return -1;
     }
 
-    function check_palindrom ($str) {
+    $str = mb_strtolower(str_replace(' ', '', $str));
 
-        if ( !(is_string($str)) )
-            return -1;
+    $reverse_str = stringReverse($str);
 
-        $str = mb_strtolower(str_replace(' ', '', $str));
+    return $str === $reverse_str;
+}
 
-        $reverse_str = string_reverse($str);
 
-        return $str === $reverse_str;
+function stringReverse($str)
+{
+    $count = mb_strlen($str, 'UTF-8');
+
+    $arr = array();
+
+    for ($i = 0; $i < $count; $i++) {
+        $arr[] = mb_substr($str, $i, 1, 'UTF-8');
     }
 
+    $reversed_string = implode(array_reverse($arr));
 
-    function string_reverse ($str) {
-    
-        $count = mb_strlen($str, 'UTF-8');
-    
-        $arr = array();
-    
-        for($i = 0; $i < $count; $i++) {
-            $arr[] = mb_substr($str, $i, 1, 'UTF-8');
-        }
-    
-        $reversed_string = implode(array_reverse($arr));
-    
-        return $reversed_string;
-    }
+    return $reversed_string;
+}
 
-    $first_string = "Аргентина манит негра";
-    $second_string = "А роза упала на лапу Азора";
-    $third_string = "Some string";
-    $fourth_string = 51;
+$first_string = "Аргентина манит негра";
+$second_string = "А роза упала на лапу Азора";
+$third_string = "Some string";
+$fourth_string = 51;
 
-    is_palindrom($fourth_string);
+isPalindrom($first_string);

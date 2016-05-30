@@ -1,64 +1,54 @@
 <?php
-/*
-    Функция должна принимать массив строк и выводить каждую строку в отдельном параграфе.
-    
-    Примечание: Теги параграфа <p></p>.
-    
-    Дополнительно (не обязательно): При выводе каждую строку выводить внутри параграфа случайное число раз.
-*/
+/**
+ * Функция должна принимать массив строк и выводить каждую строку в отдельном параграфе.
+ *
+ * Примечание: Теги параграфа <p></p>.
+ *
+ * Дополнительно (не обязательно): При выводе каждую строку выводить внутри параграфа случайное число раз.
+ */
 
-    $strings = ['String', 'Tring', 'Ring', 'Ing'];
+# Вывод каждой строки массива в отдельном параграфе:
 
-    # Вывод каждой строки массива в отдельном параграфе:
+echo "<h4>Вывод каждой строки массива в отдельном параграфе:</h4>";
 
-//    function output_strings ($array) {
-//
-//        foreach ($array as $string) {
-//            echo '<p>' . $string . '</p>';
-//        }
-//    }
-//
-//    output_strings($strings);
+$strings = ['String', 'Tring', 'Ring', 'Ing'];
 
+/**
+ * Массив строк для задания
+ * @param $array
+ */
 
-    # Вывод каждой строки массива в отдельном параграфе случайное число раз:
-    # (условно принял, что строка будет выводится не менее 1-го раза и не больше 10 раз)
-
-    function output_strings ($array) {
-
-        foreach ($array as $string) {
-
-            $result = '';
-
-            $number = mt_rand(1, 10);
-
-            for ($j = 0; $j < $number; $j++) {
-                $result .= $string . ' ';
-            }
-
-            echo '<p>' . $result . '</p>';
-        }
+function outputStrings($array)
+{
+    foreach ($array as $string) {
+        echo '<p>' . $string . '</p>';
     }
+}
 
-    output_strings($strings);
+outputStrings($strings);
 
+echo "<hr><br>";
 
-    # Вариант с циклом for:
+# Вывод каждой строки массива в отдельном параграфе случайное число раз:
+# (условно принял, что строка будет выводится не менее 1-го раза и не больше 10 раз)
 
-//    function output_strings ($array) {
-//
-//    for ($i = 0; $i < count($array); $i++) {
-//
-//        $result = '';
-//
-//        $number = mt_rand(1, 10);
-//
-//        for ($j = 0; $j < $number; $j++) {
-//            $result .= $array[$i] . ' ';
-//        }
-//
-//        echo '<p>' . $result . '</p>';
-//    }
-//}
-//
-//output_strings($strings);
+echo "<h4>Вывод каждой строки массива в отдельном параграфе случайное число раз:</h4>";
+
+function outputStrings1($array)
+{
+    foreach ($array as $string) {
+        $result = '';
+
+        $number = mt_rand(1, 10);
+
+        for ($j = 0; $j < $number; $j++) {
+            $result .= $string . ' ';
+        }
+
+        echo '<p>' . $result . '</p>';
+    }
+}
+
+outputStrings1($strings);
+
+echo "<hr><br>";
