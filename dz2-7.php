@@ -61,9 +61,16 @@ function stringReverse($str)
     return $reversed_string;
 }
 
-$first_string = "Аргентина манит негра";
-$second_string = "А роза упала на лапу Азора";
-$third_string = "Some string";
-$fourth_string = 51;
+function randomString()
+{
+    $strArray = ["Аргентина манит негра", "88", "А роза упала на лапу Азора", "Some string",
+                 "deleveled", "redivider", "Еще одна строка", "51"];
 
-isPalindrom($first_string);
+    $count = mt_rand(0, count($strArray)-1);
+
+    $inputString = $strArray[$count];
+
+    isPalindrom($inputString);
+}
+
+randomString();
